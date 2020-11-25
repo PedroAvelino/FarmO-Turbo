@@ -1,14 +1,13 @@
 //
-//  hub+dataSource.swift
+//  Tasks_VC+tableDelegate.swift
 //  TodoListApp
 //
-//  Created by Pedro Avelino on 19/10/20.
+//  Created by Pedro Avelino on 17/11/20.
 //
 
 import UIKit
 
-extension HubController: UITableViewDelegate
-{
+extension Tasks_VC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -17,8 +16,8 @@ extension HubController: UITableViewDelegate
     {
         if editingStyle != .delete { return }
         
-        //remove the content from our main data
-        AppData.content.remove(at: indexPath.row)
+        //remove the content from farm
+        currentFarm.tasks.remove(at: indexPath.row)
         
         //delete the row of the table view and play an animation
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
